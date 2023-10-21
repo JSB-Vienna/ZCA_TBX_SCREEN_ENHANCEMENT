@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_CA_SCR_ENHANCEMENT_BY_DC</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>CA-TBX: Enhance screen/dynpro by docking container</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>ADD_DOCKING_CNT_TO_BUFFER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Add docking container to buffer for the current screen</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CALCULATE_RATIO_OF_FREE_SPACE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Calculate ratio of free space as proposal</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONNECT_DOCKING_CNT_TO_SCREEN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Connect existing docking container to a different screen</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constructor - use to set filter</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CREATE_DIALOGBOX_CONTAINER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create docking container (redefine, if constr param too less</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CREATE_DOCKING_CNT_PER_SCREEN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Lookup for an active workitem and get object</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CREATE_DOCKING_CONTAINER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create docking container (redefine, if constr param too less</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DIALOGBOX</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create a dialog box (instead of docking) container + display</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DOCKING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create the docking container and display</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CS_USAGE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Usage of docking container</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>DETERMINE_CTRL_FROM_DC_CHILDS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Lookup for an active workitem and get object</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_CONTROL_FROM_BUFFER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get control from buffer (check for workitem, if requested)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_DOCKING_CNT_FROM_BUFFER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get docking from buffer (creates + insert DC if not exist)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>HIDE_OTHER_DOCKING_CNTS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Hide other/recently displayed docking containers</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>INITIALIZE_BUFFERS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Initialize buffers</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_RELEVANT_TO_DISPLAY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check, if it is currently relevant to enhance the screen</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MO_SCR_FLD_ATTR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Screen field attributes (usage with table SCREEN)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MO_SEL_OPTIONS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constants and value checks for select options / range tables</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MRA_DYNNR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Relevant dynpro numbers</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MRA_PROGRAM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Relevant program names</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MR_CONTAINER_BUFFER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Workarea for buffered docking containers</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MR_CONTROL_BUFFER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Workarea for buffered controls / containers</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MS_ACTUAL_SCREEN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Actual program and screen name</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MS_LAST_SCREEN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Last called program and screen name</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MT_CONTAINER_BUFFER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Buffer for used docking containers</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MT_CONTROL_BUFFER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Buffer for used controls / containers</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_CALC_RATIO_AT_THE_BOTTOM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Calculated ratio of free space at the bottom</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_CALC_RATIO_ON_THE_RIGHT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Calculated ratio of free space to the right side</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_CAPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Caption of control</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_CNT_NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Container name, eventually important for CFW method LINK</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_CREATE_DC_PER_SCREEN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Create a new container for each screen</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_DOCKING_CNT_IS_NEW</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Docking container is new; &apos; &apos; = already buffered</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_EXTENSION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>DC extension (used free space; unit depends on METRIC value)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_HEIGHT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Height of the dialog box</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_LEFT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Position of the dialog box - Left edge</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_LIFETIME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Lifetime of control</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_METRIC</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Screen metric, Millimeter or Pixel (see CL_GUI_C.=&gt;METRIC_*)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_RATIO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Ratio the screen is used in percent; wins over EXTENSION</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_SCREEN_HAS_CHANGED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Screen has changed; &apos; &apos; = Same screen</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_SIDE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Docking side</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_STYLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>A combination of CL_GUI_CONTROL=&gt;WS_* by addition</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_TOP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Position of the dialog box - Top edge</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_USED_SCR_COLUMNS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Number of used columns as defined</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_USED_SCR_ROWS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Number of used lines as defined</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_WIDTH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Width of the dialog box</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>RECONNECT_DOCKING_CNT_2_SCREEN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Recreate connection to screen if it is lost</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_CONTROL_N_CHILDS_VISIBILTY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set all included controls / containers in- / visible</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TY_S_CONTAINER_BUFFER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Workarea for buffered docking containers</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TY_S_CONTROL_BUFFER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Workarea for buffered controls / containers</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TY_T_CONTAINER_BUFFER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Buffer for used docking containers</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TY_T_CONTROL_BUFFER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Buffer for used controls / containers</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_DOCKING_CNT_TO_BUFFER</CMPNAME>
+     <SCONAME>ZCX_CA_SCR_ENHANCEMENT_BY_DC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Enhancing screen/dynpro by docking contain</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONNECT_DOCKING_CNT_TO_SCREEN</CMPNAME>
+     <SCONAME>ZCX_CA_SCR_ENHANCEMENT_BY_DC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Enhancing screen/dynpro by docking contain</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IS_ACTUAL_SCREEN</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Actual screen name - only if not correct by Constructor</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IV_CREATE_DC_PER_SCREEN</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Create a new container for each screen -&gt; see docu.</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>ZCX_CA_SCR_ENHANCEMENT_BY_DC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Enhancing screen/dynpro by docking contain</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_DIALOGBOX_CONTAINER</CMPNAME>
+     <SCONAME>RO_DIALOGBOX_CNT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Dialogbox container instance</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_DIALOGBOX_CONTAINER</CMPNAME>
+     <SCONAME>ZCX_CA_SCR_ENHANCEMENT_BY_DC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Enhancing screen/dynpro by docking contain</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_DOCKING_CNT_PER_SCREEN</CMPNAME>
+     <SCONAME>ZCX_CA_SCR_ENHANCEMENT_BY_DC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Enhancing screen/dynpro by docking contain</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_DOCKING_CONTAINER</CMPNAME>
+     <SCONAME>RO_DOCKING_CNT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Docking container instance</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_DOCKING_CONTAINER</CMPNAME>
+     <SCONAME>ZCX_CA_SCR_ENHANCEMENT_BY_DC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Enhancing screen/dynpro by docking contain</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DIALOGBOX</CMPNAME>
+     <SCONAME>IV_CAPTION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Dialog box caption</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DIALOGBOX</CMPNAME>
+     <SCONAME>IV_CNT_NAME</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Container name</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DIALOGBOX</CMPNAME>
+     <SCONAME>IV_HEIGHT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Height of the dialog box</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DIALOGBOX</CMPNAME>
+     <SCONAME>IV_LEFT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Position of the dialog box - Left-hand edge</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DIALOGBOX</CMPNAME>
+     <SCONAME>IV_LIFETIME</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Lifetime of control (use const CL_GUI_CONTROL=&gt;LIFETIME_*)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DIALOGBOX</CMPNAME>
+     <SCONAME>IV_STYLE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Control appearance+behavior (use const CL_GUI_CONTROL=&gt;WS_*)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DIALOGBOX</CMPNAME>
+     <SCONAME>IV_TOP</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Position of the dialog box - Top edge</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DIALOGBOX</CMPNAME>
+     <SCONAME>IV_WIDTH</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Width of the dialog box</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DIALOGBOX</CMPNAME>
+     <SCONAME>ZCX_CA_SCR_ENHANCEMENT_BY_DC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Enhancing screen/dynpro by docking contain</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DOCKING</CMPNAME>
+     <SCONAME>IV_CAPTION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Caption of the docking container</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DOCKING</CMPNAME>
+     <SCONAME>IV_CNT_NAME</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Container name</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DOCKING</CMPNAME>
+     <SCONAME>IV_EXTENSION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Extension of the control in mm or pixel (see METRIC)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DOCKING</CMPNAME>
+     <SCONAME>IV_LIFETIME</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Lifetime of control (use const CL_GUI_CONTROL=&gt;LIFETIME_*)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DOCKING</CMPNAME>
+     <SCONAME>IV_METRIC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>How to interpret EXTENSION, use const CL_GUI_CO...=&gt;METRIC_*</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DOCKING</CMPNAME>
+     <SCONAME>IV_RATIO</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Part of the screen in percent; takes priority over EXTENSION</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DOCKING</CMPNAME>
+     <SCONAME>IV_SIDE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Where to dock at the screen</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DOCKING</CMPNAME>
+     <SCONAME>IV_STYLE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Control appearance+behavior (use const CL_GUI_CONTROL=&gt;WS_*)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_DISPLAY_DOCKING</CMPNAME>
+     <SCONAME>ZCX_CA_SCR_ENHANCEMENT_BY_DC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Enhancing screen/dynpro by docking contain</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>DETERMINE_CTRL_FROM_DC_CHILDS</CMPNAME>
+     <SCONAME>RO_CONTROL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Determined control / container bound to DC</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>DETERMINE_CTRL_FROM_DC_CHILDS</CMPNAME>
+     <SCONAME>ZCX_CA_SCR_ENHANCEMENT_BY_DC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Enhancing screen/dynpro by docking contain</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_CONTROL_FROM_BUFFER</CMPNAME>
+     <SCONAME>IS_LPORB</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>BO key - for buffering purposes</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_CONTROL_FROM_BUFFER</CMPNAME>
+     <SCONAME>ZCX_CA_SCR_ENHANCEMENT_BY_DC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Enhancing screen/dynpro by docking contain</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_DOCKING_CNT_FROM_BUFFER</CMPNAME>
+     <SCONAME>ZCX_CA_SCR_ENHANCEMENT_BY_DC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Enhancing screen/dynpro by docking contain</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_RELEVANT_TO_DISPLAY</CMPNAME>
+     <SCONAME>IS_LPORB</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>BO key - for buffering purposes</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_RELEVANT_TO_DISPLAY</CMPNAME>
+     <SCONAME>IT_PARAMS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Parameters and there value references</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_RELEVANT_TO_DISPLAY</CMPNAME>
+     <SCONAME>RV_IS_RELEVANT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Is relevant to display</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_RELEVANT_TO_DISPLAY</CMPNAME>
+     <SCONAME>ZCX_CA_SCR_ENHANCEMENT_BY_DC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Enhancing screen/dynpro by docking contain</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_CONTROL_N_CHILDS_VISIBILTY</CMPNAME>
+     <SCONAME>IO_CONTROL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Control / Container</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_CONTROL_N_CHILDS_VISIBILTY</CMPNAME>
+     <SCONAME>IV_EXCEPT_CTRL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Except control itself from hiding</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_CONTROL_N_CHILDS_VISIBILTY</CMPNAME>
+     <SCONAME>IV_IS_VISIBLE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Elements are visible</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>
